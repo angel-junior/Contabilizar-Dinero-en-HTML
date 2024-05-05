@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contabilizadora de Dinero</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contabilizadora de Dinero</h1>
+
+        <div class="form-group">
+            <label for="currency">Seleccione su divisa:</label>
+            <select id="currency" onchange="changeCurrency()">
+                <option value="0">Seleccione su divisa</option>
+                <option value="USD">Estados Unidos (USD) - $</option>
+                <option value="EUR">Unión Europea (EUR) - €</option>
+                <option value="GBP">Reino Unido (GBP) - £</option>
+                <option value="JPY">Japón (JPY) - ¥</option>
+                <option value="CAD">Canadá (CAD) - C$</option>
+                <option value="AUD">Australia (AUD) - A$</option>
+                <option value="CHF">Suiza (CHF) - CHF</option>
+                <option value="MXN">México (MXN) - $</option>
+                <option value="ARS">Argentina (ARS) - $</option>
+                <option value="BRL">Brasil (BRL) - R$</option>
+                <option value="COP">Colombia (COP) - $</option>
+                <option value="CLP">Chile (CLP) - $</option>
+                <option value="UYU">Uruguay (UYU) - $</option>
+                <option value="PEN">Perú (PEN) - S/</option>
+                <option value="INR">India (INR) - ₹</option>
+                <option value="ZAR">Sudáfrica (ZAR) - R</option>
+                <option value="RUB">Rusia (RUB) - ₽</option>
+                <option value="CNY">China (CNY) - ¥</option>
+                <option value="HKD">Hong Kong (HKD) - HK$</option>
+                <option value="NZD">Nueva Zelanda (NZD) - NZ$</option>
+            </select>
+        </div>
+        
+        
+        
+
+        <div class="balance" id="balance">Balance: $0</div>
+        <form>
+            <div class="form-group">
+                <label para="amount">Monto:</label>
+                <input type="number" id="amount" min="0" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label para="reason">Motivo:</label>
+                <input type="text" id="reason" required>
+            </div>
+            <div class="actions">
+                <button id="addButton" type="button">Agregar</button>
+                <button id="removeButton" type="button">Quitar</button>
+            </div>
+        </form>
+        <h2>Historial de Transacciones</h2>
+        <ul class="history" id="history"></ul>
+    </div>
+
+    <!-- Modal para Confirmación de Eliminación -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <h3>Confirmación de Eliminación</h3>
+            <p>¿Estás seguro de querer eliminar esta transacción?</p>
+            <button id="confirmDeleteButton">Sí</button>
+            <button onclick="closeModal()">No</button>
+        </div>
+    </div>
+
+    <!-- Modal de Alerta -->
+    <div class="modal" id="alertModal">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>
